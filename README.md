@@ -16,4 +16,4 @@ https://pub.dev/publishers/funwith.app/packages
 
 ## Flutter UI Tips
 
-**Tip 001 - Stretchy Header** \[ [Video](https://www.youtube.com/watch?v=nvwZO5wgCYQ) \] \[ [Code](https://github.com/funwithflutter/flutter_ui_tips/tree/master/tip_001_stretchy_header] - Add a stretchable header to a Flutter application
+**Tip 001 - Stretchy Header** \[ [Video](https://www.youtube.com/watch?v=nvwZO5wgCYQ) \] \[ [Code](https://github.com/funwithflutter/flutter_ui_tips/tree/master/tip_001_stretchy_header) \] - Add a stretchable header to a Flutter application

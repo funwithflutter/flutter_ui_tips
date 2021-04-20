@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
 class Home extends StatelessWidget {
   /// {@macro home}
   const Home({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -74,8 +74,8 @@ class Home extends StatelessWidget {
 /// {@endtemplate}
 class _TodoListContent extends StatelessWidget {
   const _TodoListContent({
-    Key key,
-    @required this.todos,
+    Key? key,
+    required this.todos,
   }) : super(key: key);
 
   final List<Todo> todos;
@@ -101,8 +101,8 @@ class _TodoListContent extends StatelessWidget {
 class _TodoCard extends StatelessWidget {
   /// {@macro todo_card}
   const _TodoCard({
-    Key key,
-    @required this.todo,
+    Key? key,
+    required this.todo,
   }) : super(key: key);
 
   final Todo todo;
@@ -157,8 +157,8 @@ class _TodoCard extends StatelessWidget {
 class _TodoTitle extends StatelessWidget {
   /// {@macro todo_title}
   const _TodoTitle({
-    Key key,
-    @required this.title,
+    Key? key,
+    required this.title,
   }) : super(key: key);
 
   final String title;
@@ -178,13 +178,13 @@ class _TodoTitle extends StatelessWidget {
 /// Activated from [_TodoCard].
 /// {@endtemplate}
 class _TodoPopupCard extends StatelessWidget {
-  const _TodoPopupCard({Key key, this.todo}) : super(key: key);
-  final Todo todo;
+  const _TodoPopupCard({Key? key, this.todo}) : super(key: key);
+  final Todo? todo;
 
   @override
   Widget build(BuildContext context) {
     return Hero(
-      tag: todo.id,
+      tag: todo!.id,
       createRectTween: (begin, end) {
         return CustomRectTween(begin: begin, end: end);
       },
@@ -200,13 +200,13 @@ class _TodoPopupCard extends StatelessWidget {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    _TodoTitle(title: todo.description),
+                    _TodoTitle(title: todo!.description),
                     const SizedBox(
                       height: 8,
                     ),
-                    if (todo.items != null) ...[
+                    if (todo!.items != null) ...[
                       const Divider(),
-                      _TodoItemsBox(items: todo.items),
+                      _TodoItemsBox(items: todo!.items),
                     ],
                     Container(
                       margin: const EdgeInsets.all(8),
@@ -242,17 +242,17 @@ class _TodoPopupCard extends StatelessWidget {
 class _TodoItemsBox extends StatelessWidget {
   /// {@macro todo_items_box}
   const _TodoItemsBox({
-    Key key,
-    @required this.items,
+    Key? key,
+    required this.items,
   }) : super(key: key);
 
-  final List<Item> items;
+  final List<Item>? items;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        for (final item in items) _TodoItemTile(item: item),
+        for (final item in items!) _TodoItemTile(item: item),
       ],
     );
   }
@@ -264,8 +264,8 @@ class _TodoItemsBox extends StatelessWidget {
 class _TodoItemTile extends StatefulWidget {
   /// {@macro todo_item_template}
   const _TodoItemTile({
-    Key key,
-    @required this.item,
+    Key? key,
+    required this.item,
   }) : super(key: key);
 
   final Item item;
@@ -275,7 +275,7 @@ class _TodoItemTile extends StatefulWidget {
 }
 
 class _TodoItemTileState extends State<_TodoItemTile> {
-  void _onChanged(bool val) {
+  void _onChanged(bool? val) {
     setState(() {
       widget.item.completed = val;
     });

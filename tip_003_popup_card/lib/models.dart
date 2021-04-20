@@ -7,8 +7,8 @@ import 'package:meta/meta.dart';
 class Todo {
   /// {@macro todo}
   const Todo({
-    @required this.id,
-    @required this.description,
+    required this.id,
+    required this.description,
     this.items,
   });
 
@@ -19,7 +19,7 @@ class Todo {
   final String description;
 
   /// A list of [Item]s for sub-todos.
-  final List<Item> items;
+  final List<Item>? items;
 }
 
 /// {@template item}
@@ -28,7 +28,7 @@ class Todo {
 class Item {
   /// {@macro item}
   Item({
-    @required this.id,
+    required this.id,
     this.description = '',
     this.completed = false,
   });
@@ -40,5 +40,5 @@ class Item {
   final String description;
 
   /// Indicates if this item has been completed or not.
-  bool completed;
+  bool? completed;
 }
